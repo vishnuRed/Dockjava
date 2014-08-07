@@ -1,5 +1,8 @@
-FROM stackbrew/ubuntu:14.04
+FROM  democracyworks/oracle-jdk-7:latest
 MAINTAINER vishnu "vishnu.virtual@gmail.com"
 # this is to learning purpose
-RUN apt-get update && apt-get clean
-RUN apt-get install -q -y openjdk-7-jre-headless && apt-get clean
+RUN apt-get install maven
+RUN mkdir /usr/javaApplication
+WORKDIR /usr/javaApplication
+RUN wget -r https://github.com/vishnuRed/Dockjava/tree/master/SampleWebApp 
+ADD https://raw.githubusercontent.com/vishnuRed/OracleJava/master/Helloworld.java  ./usr/javaApplication/
